@@ -1,0 +1,184 @@
+.product-signup-component {
+  height: 100%;
+
+  .product-signup-inner {
+    display: flex;
+
+    .product-signup-content {
+      padding: 40px;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+
+      .product-signup-content-top {
+        flex: 1;
+
+        .product-logo-wrapper {
+          img {
+            width: 150px;
+          }
+          margin-bottom: 32px;
+        }
+
+        .product-signup-title {
+          font-size: 32px;
+          font-weight: 700;
+          margin-bottom: 8px;
+        }
+
+        .product-signup-subtitle {
+          font-size: 18px;
+          font-weight: 400;
+          margin-bottom: 56px;
+          line-height: 18px;
+        }
+
+        .product-signup-text-wrapper {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+        }
+
+        .product-signup-terms-wrapper {
+          .signup-terms-checkbox-component {
+            color: var(--color-mud_black);
+            font-size: 14px;
+            font-weight: 400;
+          }
+        }
+      }
+
+      .new-account-suggestion-wrapper {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 32px;
+        .product-signup-link {
+          cursor: pointer;
+          margin-left: 4px;
+          text-decoration: none;
+          font-weight: 500;
+        }
+      }
+
+      .product-signup-content-bottom {
+        flex: 0;
+        .product-signup-button-wrapper {
+          padding-top: 24px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .powered-by-monday-wrapper {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .product-signup-right-section {
+      flex: 0 0 300px;
+      border-radius: 0px 12px 12px 0px;
+      overflow: hidden;
+      background: var(--grey-background-color);
+
+      .product-signup-right-image {
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &.forms-theme {
+    --primary-color: var(--color-sofia_pink-hover);
+    --primary-hover-color: #94054d;
+  }
+
+  &.whiteboard-theme {
+    --primary-color: #7517f8;
+    --primary-hover-color: #5312ad;
+  }
+}
+
+/** Responsiveness fixes for mobile **/
+
+@media (max-width: 600px) {
+  .product-signup-component {
+    .product-signup-inner {
+      flex-direction: column-reverse;
+      height: 100%;
+
+      .product-signup-content {
+        height: 100%;
+        padding: 24px;
+        min-height: unset;
+
+        .product-signup-content-top {
+          .product-logo-wrapper {
+            display: none;
+          }
+
+          .product-signup-title {
+            font-size: 28px;
+          }
+
+          .product-signup-subtitle {
+            font-size: 16px;
+            margin-bottom: 4vh;
+            font-weight: 700;
+          }
+
+          .product-signup-text-wrapper {
+            font-size: 14px;
+            height: 100px;
+
+            .new-account-suggestion-wrapper {
+              font-size: 14px;
+              margin-top: 4vh;
+            }
+          }
+        }
+
+        .product-signup-content-bottom {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex: 1;
+
+          .product-signup-button-wrapper {
+            padding-top: 0;
+
+            button {
+              width: 100%;
+              padding: 0 24px;
+            }
+          }
+        }
+      }
+
+      .product-signup-right-section {
+        border-radius: initial;
+
+        .product-signup-right-image {
+          background-position: top;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .product-signup-component {
+    .product-signup-inner {
+      .product-signup-content {
+        .product-signup-content-top {
+          .product-signup-title {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}

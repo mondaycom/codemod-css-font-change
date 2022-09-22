@@ -1,0 +1,23 @@
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 6px;
+}
+
+.a {
+  // Inline comment
+  color: green;
+  margin: 20px;
+  font-size: 25px;
+
+  &.b {
+    border: 1px solid orange;
+    color: $old-color-var;
+    font-size: 16px;
+  }
+}
+
+ul {
+  @include horizontal-list;
+}

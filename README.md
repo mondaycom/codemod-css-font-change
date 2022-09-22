@@ -9,4 +9,4 @@ TODO:
 - [x] Add px to mixins arguments
 - [x] Empty lines - apply prettier?
 - [ ] FA icon troubles?
-# codemod-css-font-change
+- [ ] Monolith: in left pane some text becomes blurry and search button is not aligned properly
