@@ -1,0 +1,245 @@
+@import "shared-styles/application/z-index.scss";
+@import "shared-styles/colors.json";
+@import "shared-styles/theme/themes-vars.scss";
+@import "app/assets/stylesheets/pulse/default/_mixins.scss";
+
+.slide-exit {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.slide-exit-active {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.slide-enter {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.slide-enter-active {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.menu-component-wrapper {
+  &.minimize {
+    .batch-actions-menu-wrapper {
+      .num-of-actions_wrapper {
+        margin-right: 20px;
+      }
+      .batch-actions-title-section {
+        display: none;
+      }
+    }
+  }
+  pointer-events: none;
+}
+
+.batch-actions-menu-wrapper {
+  transition: opacity 150ms, transform 150ms;
+  position: absolute;
+  width: 800px;
+  height: 63px;
+  z-index: $batch-actions-menu-wrapper-z-index;
+  @include theme-prop(background-color, secondary-background-color);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow-large);
+  pointer-events: auto;
+
+  flex-direction: row;
+  display: flex;
+  bottom: 35px;
+  user-select: none;
+
+  .batch-actions-item {
+    &.convert-to-subitem-action {
+      .action-icon {
+        top: 7px;
+      }
+    }
+  }
+
+  &.react-boards {
+    position: fixed;
+  }
+
+  @media (min-width: 768px) and (max-width: 1220px) {
+    width: 500px;
+
+    .num-of-actions {
+      font-size: 24px !important;
+    }
+
+    .title {
+      font-size: 20px !important;
+    }
+
+    .action-icon {
+      font-size: 18px !important;
+    }
+
+    .action-name {
+      font-size: 12px !important;
+    }
+
+    .pulses_dots {
+      display: none !important;
+    }
+
+    @media (max-width: 900px) {
+      width: 370px;
+
+      .num-of-actions_wrapper {
+        width: 50px !important;
+      }
+
+      .title {
+        font-size: 15px !important;
+        font-weight: 300 !important;
+      }
+
+      .batch-actions-delete-item {
+        width: 50px !important;
+      }
+    }
+  }
+
+  .on-boarding-tip {
+    width: 370px;
+    bottom: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .num-of-actions_wrapper {
+    width: 63px;
+    @include theme-prop(color, primary-background-color);
+    @include theme-prop(background-color, primary-color);
+    border-radius: 5px 0px 0px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    cursor: default;
+
+    .num-of-actions {
+      font-size: 30px;
+    }
+
+    .clear-num-of-actions {
+      font-size: 13px;
+      @include theme-prop(color, primary-background-color);
+      cursor: pointer;
+    }
+  }
+
+  .batch-actions-title-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    cursor: default;
+
+    .title {
+      @include theme-prop(color, primary-text-color);
+      font-size: 24px;
+      padding-left: 20px;
+      font-weight: 100;
+      @include ellipsis();
+      max-width: 300px;
+    }
+  }
+
+  .dialog-wrapper {
+    display: flex;
+    position: relative;
+
+    .fade-exit {
+      opacity: 1;
+
+      .moveto-dialog,
+      .convert-to-subitems-dialog {
+        bottom: 80px !important;
+      }
+
+      .carret {
+        top: -24px;
+      }
+    }
+
+    .fade-exit-active {
+      opacity: 0;
+      transition: opacity 100ms cubic-bezier(0, 0, 0.35, 1);
+
+      .moveto-dialog,
+      .convert-to-subitems-dialog {
+        bottom: 70px !important;
+        transition: bottom 100ms cubic-bezier(0, 0, 0.35, 1);
+      }
+
+      .carret {
+        top: -14px;
+        transition: top 100ms cubic-bezier(0, 0, 0.35, 1);
+      }
+    }
+
+    .fade-enter {
+      opacity: 0;
+
+      .moveto-dialog,
+      .convert-to-subitems-dialog {
+        bottom: 70px !important;
+      }
+
+      .carret {
+        top: -14px;
+      }
+    }
+
+    .fade-enter-active {
+      opacity: 1;
+      transition: opacity 100ms cubic-bezier(0, 0, 0.35, 1);
+
+      .moveto-dialog,
+      .convert-to-subitems-dialog {
+        bottom: 80px !important;
+        transition: bottom 100ms cubic-bezier(0, 0, 0.35, 1);
+      }
+
+      .carret {
+        top: -24px;
+        transition: top 100ms cubic-bezier(0, 0, 0.35, 1);
+      }
+    }
+
+    .carret {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      @include theme-prop(background-color, secondary-background-color);
+      top: -24px;
+      right: 39px;
+      transform: rotate(45deg);
+    }
+  }
+
+  .batch-actions-delete-item {
+    display: flex;
+    width: 63px;
+    cursor: pointer;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-left: 2px solid;
+    @include theme-prop(border-left-color, ui-border-color);
+
+    &:hover {
+      .icon-dapulse-x-slim {
+        @include theme-prop(color, primary-color);
+      }
+    }
+  }
+}
